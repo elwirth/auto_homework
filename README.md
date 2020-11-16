@@ -2,19 +2,15 @@
 
 ## ONLY NEED TO DO THIS ONCE.
 Instructions:
-1. Go to https://moseskonto.tu-berlin.de/moses/teilleistungen/
-2. Navigate to Teilleistungsverwaltung
-3. Choose the course, e.g.: Analysis I und Lineare Algebra für Ingenieurwissenschaften
-4. Click "Teilleistungsergebnisse der Veranstaltung bearbeiten"
-5. Under "Bitte wählen Sie die anzuzeigende(n) Teilleistung(en):", select HA0. It does not really matter, we just need
-any homework assignment. A new selection option should pop up: "Bitte wählen Sie die anzuzeigenden Studierenden:"
-6. Select "Alle Studierenden aus meinen Tutorien"
-7. Scroll to the bottom.
-8. Click "Gespeicherte Ergebnisse als CSV Datei"
-9. Download the CSV file and save it in the same folder as this file ("main.py"). This is important, name it:
-"eintragungsliste.csv"
-The apostrophes are NOT part of the filename.
-10. You now have a CSV file with the names of your students in it.
+1. Go to https://moseskonto.tu-berlin.de/moses/tutorium/
+2. Click "Ergebnisse"
+3. For all of your tutoriums, please click on them and download the respective csv file
+4. Copy all students from your tutoriums into ONE csv file. Name it "students_list.csv".
+5. The first line of this csv file has to be:
+Name	Vorname	Matr.-Nr.	Studiengang	E-Mail	Ordnungsmerkmal	Tutorium	Tutor	Hausaufgabenkriterium
+6. Save it in the same folder as this file, i.e., "main.py".
+7. Close the csv file.
+8. You now have a CSV file with the names and, more importantly, the email addresses of your students in it.
 
 
 ## THIS NEEDS TO BE DONE FOR EVERY NEW HOMEWORK ASSIGNMENT.

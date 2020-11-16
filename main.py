@@ -22,21 +22,16 @@ import pandas as pd
 
 
 
-df = pd.read_csv("eintragungsliste.csv")
+df = pd.read_csv("students_list.csv")
 students = []
 for i in range(0, len(df)):
-    string = df[df.keys()[1]].tolist()[i]
-    last, first = string.split(',')
-    first = first[1:]
-    students.append([last, first])
-df = pd.read_csv("ha.csv")
-for student in students:
-    nachname = student[0]
-    vorname = student[1]
+    string = df["E-Mail"][i]
+    students.append(string)
 
-    tmp_df = df[df["Nachname"] == nachname]
-    # If multiple people with the same last name exist, check first name.
-    # print(nachname, vorname)
+df = pd.read_csv("ha.csv")
+
+for email in students:
+    tmp_df = df[df["E-Mail-Adresse"] == email]
     if len(tmp_df) == 0:
         resultat = "00,00"
     else:
@@ -48,6 +43,10 @@ for student in students:
         for string in tmp_df.keys():
             if "Bewertung" in string:
                 resultat = tmp_df['Bewertung/30,00'].reset_index(drop=True).to_string()[5:]
+            elif "Nachname" in string:
+                nachname = tmp_df[string].reset_index(drop=True).to_string()[5:]
+            elif "Vorname" in string:
+                vorname = tmp_df[string].reset_index(drop=True).to_string()[5:]
 
     print(nachname + ", " + vorname + ": " + resultat)
     print("--------------------------------------------------")
