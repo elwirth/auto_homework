@@ -22,18 +22,24 @@ import pandas as pd
 
 
 
-df = pd.read_csv("students_list.csv")
+df_students = pd.read_csv("students_list.csv")
 students = []
-for i in range(0, len(df)):
-    string = df["E-Mail"][i]
-    students.append(string)
+for i in range(0, len(df_students)):
+    email = df_students["E-Mail"][i]
+    vorname = df_students["Vorname"][i]
+    nachname = df_students["Name"][i]
+    students.append([email, vorname, nachname])
 
 df = pd.read_csv("ha.csv")
 
-for email in students:
+for student in students:
+    email = student[0]
     tmp_df = df[df["E-Mail-Adresse"] == email]
+    vorname = student[1]
+    nachname = student[2]
     if len(tmp_df) == 0:
         resultat = "00,00"
+        tmp_df = df_students[df_students["E-Mail"] == 1]
     else:
         if len(tmp_df) > 1:
             tmp_df = tmp_df[tmp_df["Vorname"] == vorname]
@@ -43,10 +49,10 @@ for email in students:
         for string in tmp_df.keys():
             if "Bewertung" in string:
                 resultat = tmp_df['Bewertung/30,00'].reset_index(drop=True).to_string()[5:]
-            elif "Nachname" in string:
-                nachname = tmp_df[string].reset_index(drop=True).to_string()[5:]
-            elif "Vorname" in string:
-                vorname = tmp_df[string].reset_index(drop=True).to_string()[5:]
+            # elif "Nachname" in string:
+            #     nachname = tmp_df[string].reset_index(drop=True).to_string()[5:]
+            # elif "Vorname" in string:
+            #     vorname = tmp_df[string].reset_index(drop=True).to_string()[5:]
 
-    print(nachname + ", " + vorname + ": " + resultat)
-    print("--------------------------------------------------")
+        print(nachname + ", " + vorname + ": " + resultat)
+        print("--------------------------------------------------")
