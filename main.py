@@ -31,7 +31,12 @@ for i in range(0, len(df_students)):
     students.append([email, vorname, nachname])
 
 df = pd.read_csv("ha.csv")
-
+print(" ")
+print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+print("Automatically Checking Online Exercises.")
+print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+print(" ")
+print("--------------------------------------------------")
 for student in students:
     email = student[0]
     tmp_df = df[df["E-Mail-Adresse"] == email]
