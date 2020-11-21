@@ -53,7 +53,7 @@ for student in students:
             assert len(tmp_df) == 1, "There are two students with the same name."
         for string in tmp_df.keys():
             if "Bewertung" in string:
-                resultat = tmp_df['Bewertung/30,00'].reset_index(drop=True).to_string()[5:]
+                resultat = tmp_df[string].reset_index(drop=True).to_string()[5:]
             # elif "Nachname" in string:
             #     nachname = tmp_df[string].reset_index(drop=True).to_string()[5:]
             # elif "Vorname" in string:
