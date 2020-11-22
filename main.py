@@ -44,7 +44,6 @@ for student in students:
     nachname = student[2]
     if len(tmp_df) == 0:
         resultat = "00,00"
-        tmp_df = df_students[df_students["E-Mail"] == 1]
     else:
         if len(tmp_df) > 1:
             tmp_df = tmp_df[tmp_df["Vorname"] == vorname]
@@ -59,5 +58,5 @@ for student in students:
             # elif "Vorname" in string:
             #     vorname = tmp_df[string].reset_index(drop=True).to_string()[5:]
 
-        print(nachname + ", " + vorname + ": " + resultat)
-        print("--------------------------------------------------")
+    print(nachname + ", " + vorname + ": " + resultat)
+    print("--------------------------------------------------")
