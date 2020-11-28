@@ -23,6 +23,8 @@ import pandas as pd
 
 
 df_students = pd.read_csv("students_list.csv")
+df_students.sort_values("Name")
+
 students = []
 for i in range(0, len(df_students)):
     email = df_students["E-Mail"][i]
