@@ -21,6 +21,9 @@ install("pandas")
 import pandas as pd
 
 
+def find(s, other):
+    return s.find(other) != -1
+
 
 df_students = pd.read_csv("students_list.csv")
 df_students.sort_values("Name")
@@ -45,20 +48,20 @@ for student in students:
     vorname = student[1]
     nachname = student[2]
     if len(tmp_df) == 0:
+        tmp_df = df[df["Nachname"] == nachname]
+
+    if len(tmp_df) == 0:
         resultat = "00,00"
     else:
         if len(tmp_df) > 1:
             tmp_df = tmp_df[tmp_df["Vorname"] == vorname]
+            tmp_df = tmp_df[tmp_df["Nachname"] == nachname]
             if len(tmp_df) == 0:
                 resultat = "00,00"
             assert len(tmp_df) == 1, "There are two students with the same name."
         for string in tmp_df.keys():
             if "Bewertung" in string:
                 resultat = tmp_df[string].reset_index(drop=True).to_string()[5:]
-            # elif "Nachname" in string:
-            #     nachname = tmp_df[string].reset_index(drop=True).to_string()[5:]
-            # elif "Vorname" in string:
-            #     vorname = tmp_df[string].reset_index(drop=True).to_string()[5:]
 
     print(nachname + ", " + vorname + ": " + resultat)
     print("--------------------------------------------------")
