@@ -44,11 +44,14 @@ print(" ")
 print("--------------------------------------------------")
 for student in students:
     email = student[0]
-    tmp_df = df[df["E-Mail-Adresse"] == email]
     vorname = student[1]
     nachname = student[2]
+    tmp_df = df[df["E-Mail-Adresse"] == email]
     if len(tmp_df) == 0:
         tmp_df = df[df["Nachname"] == nachname]
+
+    if len(tmp_df) == 0:
+        tmp_df = df[df["Vorname"] == vorname]
 
     if len(tmp_df) == 0:
         resultat = "00,00"
