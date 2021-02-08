@@ -57,6 +57,7 @@ for student in students:
         resultat = "00,00"
     else:
         if len(tmp_df) > 1:
+            print(tmp_df)
             tmp_df = tmp_df[tmp_df["Vorname"] == vorname]
             tmp_df = tmp_df[tmp_df["Nachname"] == nachname]
             if len(tmp_df) == 0:
